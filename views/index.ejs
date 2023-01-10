@@ -1,0 +1,27 @@
+<%- include('./partials/header') %>
+<body>
+    <div class="homepage-container">
+        <div class="menu-container">
+            <%- include('./partials/menu') %>
+        </div>
+        <div class="post-container">
+            <%- include('./partials/posts') %>
+
+        </div>
+        <div class="create-topic-and-top-users-container">
+            <button>+ Start a New Topic</button>
+            <div>
+                <h3>Top users</h3>
+                <%- include('./partials/topusers') %> 
+                <%- include('./partials/topusers') %> 
+                <%- include('./partials/topusers') %> 
+                <%- include('./partials/topusers') %> 
+                <hr>
+                <%- include('./partials/topusers') %> 
+                 
+            </div>
+            <%- include('./partials/footer') %>
+        </div>
+    </div>
+    <script src="./js/index.js"></script>   
+</body>

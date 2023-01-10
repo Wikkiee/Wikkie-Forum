@@ -1,0 +1,13 @@
+.footer-bar-container{
+    background-color: white;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+    div{
+        a{
+            font-size: 12px;
+            text-decoration: none;
+        }
+    }
+}

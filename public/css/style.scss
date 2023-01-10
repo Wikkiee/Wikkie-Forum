@@ -1,0 +1,22 @@
+@import './variables';
+
+body{
+    margin: 0;
+    padding: 0;
+    background-color: $grey-background;
+}
+
+p,h1,h2,h3{
+    font-family: "Helvetica",Arial, sans-serif;
+}
+
+.sticky{
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 9999;
+}
+
+@import './navbar';
+@import './index';
+
