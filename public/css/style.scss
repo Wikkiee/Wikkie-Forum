@@ -2,21 +2,15 @@
 
 body{
     margin: 0;
+    margin-top: 100px;
     padding: 0;
     background-color: $grey-background;
 }
 
-p,h1,h2,h3{
+p,h1,h2,h3,a{
     font-family: "Helvetica",Arial, sans-serif;
 }
 
-.sticky{
-    width: 100%;
-    position: fixed;
-    top: 0;
-    z-index: 9999;
-}
-
-@import './navbar';
-@import './index';
-
+@import './index/index';
+@import './index/navbar';
+@import './login/login';

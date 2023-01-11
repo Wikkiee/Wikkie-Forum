@@ -23,7 +23,6 @@
         margin: 0 20px;
         overflow: scroll;
 
-
         @import './posts';
         
     }
@@ -35,9 +34,8 @@
 
     .create-topic-and-top-users-container{
         height: 100%;
-        width: 30%;
+        width: 40%;
         margin: 0 20px;
-
 
         @import './topusers';
         @import './footer';
