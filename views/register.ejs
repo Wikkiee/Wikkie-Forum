@@ -14,13 +14,17 @@
 <div class="login-container">
     <div>
         <h2><img src="/images/logo.svg" alt="img"/> Wikkie forum</h1>
-        <input placeholder="Email ID"/>
-        <input placeholder="Password"/>
-        <button>Login</button>   
+            
+        <form action="/register" method="post">
+            <input name="userName" placeholder="Name"/>
+            <input name="userEmailId" placeholder="Email ID"/>
+            <input name="userPassword" placeholder="Password"/>
+            <input name="userConfirmPassword" placeholder="Confirm Password"/>
+            <button>Register</button>     
+        </form>
         <hr/>
         <div>
-            <a href="/register"> Register</a>
-            <a href="/login">Forgot password</a>
+            <a href="/login"> Login</a>
         </div>
     </div>
 </div>
