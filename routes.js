@@ -15,6 +15,9 @@ export const register = (req,res)=>{
 
 export const Register = (req,res)=>{
     console.log(req.body);
+    db.query(`SELECT * FROM Users`,(err,result)=>{
+        console.log(result);
+    })
     db.query(`INSERT INTO Users(userName, userEmail,userPassword) VALUES('${req.body.userName}','${req.body.userEmailId}','${req.body.userPassword}');`,(err,result)=>{
         if(err) console.log(err)
         console.log(result)
