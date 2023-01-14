@@ -6,6 +6,10 @@ export const home = (req,res)=>{
 }
 
 export const login = (req,res)=>{
+    console.log(req.body);
+    db.query(`SELECT * FROM Users`,(err,result)=>{
+        console.log(result);
+    })
     res.render('login');
 }
 
