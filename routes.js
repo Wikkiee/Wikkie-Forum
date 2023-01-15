@@ -14,6 +14,10 @@ export const login = (req,res)=>{
 }
 
 export const register = (req,res)=>{
+    console.log(req.body);
+    db.query(`SELECT * FROM Users`,(err,result)=>{
+        console.log(result);
+    })
     res.render('register');
 }
 
