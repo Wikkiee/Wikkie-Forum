@@ -1,35 +1,61 @@
 import db from './database.js';
-import bcrypt from 'bcrypt';
+import bcrypt from "bcrypt";
+
+
+
 
 export const home = (req,res)=>{
     res.render('index');
 }
 
 export const login = (req,res)=>{
-    console.log(req.body);
-    db.query(`SELECT * FROM Users`,(err,result)=>{
-        console.log(result);
-    })
+   
     res.render('login');
 }
 
-export const register = (req,res)=>{
-    console.log(req.body);
-    db.query(`SELECT * FROM Users`,(err,result)=>{
-        console.log(result);
+export const Login = (req,res)=>{
+    db.query(`SELECT * FROM Users WHERE userEmail = '${req.body.userEmailId}'`,(err,result)=>{
+        if(err) throw err
+        if(result.length !== 0){
+            console.log(result);
+            const hash = bcrypt.compareSync(req.body.userPassword, result[0].userPassword);
+            if(hash){
+                res.redirect('/')
+            }else{
+                console.log('Wrong password or email ID');
+                res.redirect('/login')
+            }
+        }
     })
+    // res.redirect('/')
+}
+
+export const register = (req,res)=>{
     res.render('register');
 }
 
 export const Register = (req,res)=>{
-    console.log(req.body);
-    db.query(`SELECT * FROM Users`,(err,result)=>{
-        console.log(result);
+    db.query(`SELECT userName FROM Users WHERE userName = '${req.body.userName}'`,(err,result)=>{
+        console.log(result.length)
+        if(result.length===0){
+            db.query(`SELECT userEmail FROM Users WHERE userEmail = '${req.body.userEmailId}'`,async(err,result)=>{
+                if(err) console.log(err);
+                if(result.length === 0){
+                    const hash = bcrypt.hashSync(req.body.userPassword, parseInt(process.env.SALTROUNDS));
+                    db.query(`INSERT INTO Users(userName, userEmail,userPassword) VALUES('${req.body.userName}','${req.body.userEmailId}','${hash}');`,(err,result)=>{
+                        if(err) console.log(err)
+                        console.log("Inserted successfully");
+                    })
+
+                }else{
+                    console.log('Email already used');
+                }
+            })
+        }else{
+            console.log('user name already exist');
+        }
     })
-    db.query(`INSERT INTO Users(userName, userEmail,userPassword) VALUES('${req.body.userName}','${req.body.userEmailId}','${req.body.userPassword}');`,(err,result)=>{
-        if(err) console.log(err)
-        console.log(result)
-    })
+
     res.redirect('/login')
 
 }

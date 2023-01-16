@@ -4,7 +4,7 @@ import bodyParser from 'body-parser';
 
 import path from 'path';
 import db from './database.js'
-import {home,login,register,Register} from './routes.js';
+import {home,login,Login,register,Register} from './routes.js';
 
 const PORT = 3000
 const app = express();
@@ -20,6 +20,8 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.get('/',home);
 
 app.get('/login',login);
+
+app.post('/login',Login);
 
 app.get('/register',register);
 
