@@ -280,9 +280,6 @@ p, h1, h2, h3, a {
   margin: 0;
   margin-left: 8px;
 }
-.navbar .navbar-notification-profile-container .profile-button i {
-  background-color: #b7b7b7;
-}
 
 .login-container {
   display: flex;

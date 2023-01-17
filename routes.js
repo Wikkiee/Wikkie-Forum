@@ -22,9 +22,12 @@ export const Login = (req,res)=>{
             if(hash){
                 res.redirect('/')
             }else{
-                console.log('Wrong password or email ID');
+                console.log('Wrong password');
                 res.redirect('/login')
             }
+        }else{
+            console.log('Wrong email ID');
+            res.redirect('/login')
         }
     })
     // res.redirect('/')
