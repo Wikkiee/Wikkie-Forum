@@ -24,7 +24,8 @@ db.connect(function(err) {
       PRIMARY KEY(userId),
       userName varchar(255),
       userEmail varchar(255),
-      userPassword varchar(255)
+      userPassword varchar(255),
+      userAvatar LONGTEXT
   )`,(err,result)=>{
       if(err) console.log(err);
       console.log(result);

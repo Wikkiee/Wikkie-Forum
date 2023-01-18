@@ -273,12 +273,15 @@ p, h1, h2, h3, a {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #b7b7b7;
   height: 30px;
   width: 30px;
   border-radius: 50%;
   margin: 0;
   margin-left: 8px;
+}
+.navbar .navbar-notification-profile-container .profile-button img {
+  width: 100%;
+  height: auto;
 }
 
 .login-container {
