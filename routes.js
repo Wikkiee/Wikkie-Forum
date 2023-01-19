@@ -21,6 +21,7 @@ export const Login = (req,res)=>{
         if(result.length !== 0){
             const hash = bcrypt.compareSync(req.body.userPassword, result[0].userPassword);
             if(hash){
+                //cookies
                 res.redirect(`/home/${result[0].userName}`)
             }else{
                 console.log('Wrong password');
