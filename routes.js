@@ -1,10 +1,10 @@
 import db from './database.js';
-import bcrypt from "bcrypt";
+
 import { AvatarGenerator } from 'random-avatar-generator';
 const generator = new AvatarGenerator();
  
 export const home = (req,res)=>{
-    db.query(`SELECT userAvatar from Users WHERE userName = '${req.params.name}'`,(err,result)=>{
+    db.query(`SELECT userAvatar from Users WHERE userId ='${req.session.passport.user}'`,(err,result)=>{
         if(err) throw err
         res.render('index',{avatar:{link:result[0].userAvatar}});
     })
@@ -13,25 +13,6 @@ export const home = (req,res)=>{
 
 export const login = (req,res)=>{
     res.render('login');
-}
-
-export const Login = (req,res)=>{
-    db.query(`SELECT * FROM Users WHERE userEmail = '${req.body.userEmailId}'`,(err,result)=>{
-        if(err) throw err
-        if(result.length !== 0){
-            const hash = bcrypt.compareSync(req.body.userPassword, result[0].userPassword);
-            if(hash){
-                //cookies
-                res.redirect(`/home/${result[0].userName}`)
-            }else{
-                console.log('Wrong password');
-                res.redirect('/login')
-            }
-        }else{
-            console.log('Wrong email ID');
-            res.redirect('/login')
-        }
-    })
 }
 
 export const register = (req,res)=>{
