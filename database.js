@@ -20,8 +20,9 @@ db.connect(function(err) {
    
     console.log('connected as id ' + db.threadId);
     db.query(`CREATE TABLE IF NOT EXISTS Users(
-      userId INT NOT NULL AUTO_INCREMENT,
-      PRIMARY KEY(userId),
+      indexId INT NOT NULL AUTO_INCREMENT,
+      userId varchar(255),
+      PRIMARY KEY(indexId),
       userName varchar(255),
       userEmail varchar(255),
       userPassword varchar(255),

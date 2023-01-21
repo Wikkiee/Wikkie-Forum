@@ -320,6 +320,10 @@ p, h1, h2, h3, a {
 .login-container div input :focus {
   outline: none;
 }
+.login-container div label {
+  color: red;
+  margin-bottom: 10px;
+}
 .login-container div button {
   background-color: blue;
   width: 100%;

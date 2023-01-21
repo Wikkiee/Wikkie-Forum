@@ -15,7 +15,9 @@ app.use(session({
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
-    cookie: { maxAge: 9000000000000}
+    cookie: { 
+      maxAge: 9000000000000
+    }
   }))
 app.set('view engine', 'ejs',path);
 app.set('views', path.join(__dirname, 'views'));
