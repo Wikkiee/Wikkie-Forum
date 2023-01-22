@@ -19,7 +19,7 @@ export const login = (req,res)=>{
 }
 
 export const register = (req,res)=>{
-    res.render('register');
+    res.render('register',{data:{error:{type:'username',state:false},message:''}});
 }
 
 export const Register = (req,res)=>{
@@ -47,13 +47,13 @@ export const Register = (req,res)=>{
 
 
                 }else{
-                    res.redirect('/register')
+                    res.render('register',{data:{error:{type:'email',state:true},message:'Email already used'}})
                     console.log('Email already used');
                 }
             })
         }else{
-            res.redirect('/register')
-            console.log('user name already exist');
+            res.render('register',{data:{error:{type:'username',state:true},message:'Username is already taken'}})
+            console.log('Username is already taken');
         }
     })
 

@@ -17,9 +17,13 @@
             
         <form action="/register" method="post">
             <input name="userName" placeholder="Name"/>
-            <label for="userName">Test</label>
+            <% if(data.error.type === 'username' && data.error.state == true){ %>
+                <label for="userName"><%= data.message %></label>
+             <% } %>
             <input name="userEmailId" placeholder="Email ID"/>
-            <label for="userName">Test</label>
+            <% if(data.error.type === 'email' && data.error.state == true){ %>
+                <label for="userName"><%= data.message %></label>
+             <% } %>
             <input name="userPassword" placeholder="Password"/>
             <input name="userConfirmPassword" placeholder="Confirm Password"/>
             <button>Register</button>     
