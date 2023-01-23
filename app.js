@@ -3,7 +3,7 @@ import bodyParser from 'body-parser';
 import passport from 'passport';
 import { initialize } from './passport-config.js';
 import path from 'path';
-import {home,login,register,Register} from './routes.js';
+import {home,login,register,Register,post} from './routes.js';
 import session from 'express-session';
 
 initialize(passport)
@@ -39,6 +39,12 @@ app.post('/login',passport.authenticate('local', {
 app.get('/register',checkNotAuthenticated,register);
 
 app.post('/register',checkNotAuthenticated,Register)
+
+app.get('/post',checkAuthenticated,post)
+
+
+
+
 
 function checkAuthenticated(req, res, next) {
     if (req.isAuthenticated()) {

@@ -28,12 +28,12 @@ export const initialize = (passport)=>{
     }
     passport.use(new Strategy({usernameField:'userEmailId',passwordField:'userPassword'},authenticateUser))
     passport.serializeUser((user, done) =>{
-        done(null, user.userId)
+        done(null, {userId:user.userId,userName:user.userName,userAvatar:user.userAvatar})
         
     })
-    passport.deserializeUser((id, done) => {
-        db.query(`SELECT * FROM Users WHERE userId='${id}'`,(err,result)=>{
-            done(null, result[0].userId === id)
+    passport.deserializeUser((user, done) => {
+        db.query(`SELECT * FROM Users WHERE userId='${user.userId}'`,(err,result)=>{
+            done(null, result[0].userId === user.userId)
         })
     })
     

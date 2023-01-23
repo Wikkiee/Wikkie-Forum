@@ -5,12 +5,7 @@ import bcrypt from 'bcrypt'
 const generator = new AvatarGenerator();
  
 export const home = (req,res)=>{
-    console.log(req.session.passport);
-    db.query(`SELECT userAvatar from Users WHERE userId ='${req.session.passport.user}'`,(err,result)=>{
-        if(err) throw err
-        res.render('index',{avatar:{link:result[0].userAvatar}});
-    })
-
+        res.render('index',{avatar:{link:req.session.passport.user.userAvatar}});
 }
 
 export const login = (req,res)=>{
@@ -59,4 +54,12 @@ export const Register = (req,res)=>{
 
 
 
+}
+
+
+export const post = (req,res)=>{
+    db.query(`SELECT userAvatar from Users WHERE userId ='${req.session.passport.user}'`,(err,result)=>{
+        if(err) throw err
+    res.render('create-post',{avatar:{link:req.session.passport.user.userAvatar}});
+    })
 }
