@@ -320,7 +320,12 @@ p, h1, h2, h3, a {
 .login-container div input :focus {
   outline: none;
 }
-.login-container div label {
+.login-container div div {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.login-container div div label {
   color: red;
   margin-bottom: 10px;
 }
@@ -351,5 +356,50 @@ p, h1, h2, h3, a {
 }
 
 .create-post-container {
-  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+}
+.create-post-container form {
+  width: 100%;
+}
+.create-post-container form div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.create-post-container form div label {
+  font-weight: 700;
+  font-size: 20px;
+}
+.create-post-container form div input {
+  width: 50%;
+  height: 50px;
+  border: 0 solid black;
+  border-radius: 5px;
+  text-indent: 20px;
+  margin: 10px 0px;
+}
+.create-post-container form div textarea {
+  width: 50%;
+  border: 0 solid black;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 20px 0px;
+  overflow: hidden;
+  scroll-behavior: auto;
+  resize: none;
+}
+.create-post-container form div button {
+  background-color: blue;
+  width: 20%;
+  border: 0;
+  color: white;
+  padding: 8px 0px;
+  border-radius: 5px;
+  margin-bottom: 50px;
 }/*# sourceMappingURL=style.css.map */

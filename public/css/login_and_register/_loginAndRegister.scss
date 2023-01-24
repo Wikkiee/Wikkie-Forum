@@ -33,10 +33,17 @@
                 outline: none;
             }
         }
-        label{
-            color: red;
-            margin-bottom: 10px;
+        div{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            label{
+                color: red;
+                margin-bottom: 10px;
+                
+            }
         }
+
         button{
             background-color: blue;
             width: 100%;

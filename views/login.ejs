@@ -17,6 +17,11 @@
         <form action="/login" method="post">
             <input name="userEmailId" placeholder="Email ID"/>
             <input name="userPassword" placeholder="Password"/>
+            <div>
+                <% if (messages.error) { %>
+                    <label><%= messages.error %></label>
+                <% } %>
+            </div>
             <button>Login</button>   
             <hr/>
             <div>

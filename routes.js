@@ -63,3 +63,12 @@ export const post = (req,res)=>{
     res.render('create-post',{avatar:{link:req.session.passport.user.userAvatar}});
     })
 }
+
+export const Post = (req,res)=>{
+    console.log(req.body);
+    db.query(`INSERT INTO Post(userId,userPost) VALUES('${req.session.passport.user.userId}','${JSON.stringify(req.body)}')`,(err,result)=>{
+        if(err) throw err
+        console.log(result);
+        res.redirect('/post')
+    })
+}

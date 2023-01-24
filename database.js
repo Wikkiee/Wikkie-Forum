@@ -26,10 +26,21 @@ db.connect(function(err) {
       userName varchar(255),
       userEmail varchar(255),
       userPassword varchar(255),
-      userAvatar LONGTEXT
+      userAvatar LONGTEXT,
+      userPost json
   )`,(err,result)=>{
       if(err) console.log(err);
-      console.log(result);
+      db.query(`CREATE TABLE IF NOT EXISTS Post(
+        postIndexId INT NOT NULL AUTO_INCREMENT,
+        PRIMARY KEY(postIndexId),
+        indexId INT,
+        userId varchar(255),
+        FOREIGN KEY (indexId) REFERENCES Users(indexId),
+        userPost json
+    )`,(err,result)=>{
+        if(err) console.log(err);
+        console.log(result);
+    })
   })
   });
 
