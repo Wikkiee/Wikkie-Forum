@@ -5,7 +5,10 @@ import bcrypt from 'bcrypt'
 const generator = new AvatarGenerator();
  
 export const home = (req,res)=>{
+    db.query(`SELECT * FROM Post`,(err,result)=>{
+        console.log(result);
         res.render('index',{avatar:{link:req.session.passport.user.userAvatar}});
+    })
 }
 
 export const login = (req,res)=>{
