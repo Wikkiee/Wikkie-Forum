@@ -6,8 +6,8 @@ const generator = new AvatarGenerator();
  
 export const home = (req,res)=>{
     db.query(`SELECT * FROM Post`,(err,result)=>{
-        console.log(result);
-        res.render('index',{avatar:{link:req.session.passport.user.userAvatar}});
+
+        res.render('index',{avatar:{link:req.session.passport.user.userAvatar},post:result});
     })
 }
 
@@ -69,9 +69,15 @@ export const post = (req,res)=>{
 
 export const Post = (req,res)=>{
     console.log(req.body);
-    db.query(`INSERT INTO Post(userId,userPost) VALUES('${req.session.passport.user.userId}','${JSON.stringify(req.body)}')`,(err,result)=>{
+    const data = {
+        postTitle:req.body.postTitle,
+        postContent:req.body.postContent,
+        userAvatar:req.session.passport.user.userAvatar,
+        userName:req.session.passport.user.userName
+    }
+    db.query(`INSERT INTO Post(userId,userPost) VALUES('${req.session.passport.user.userId}','${JSON.stringify(data)}')`,(err,result)=>{
         if(err) throw err
         console.log(result);
-        res.redirect('/post')
+        res.redirect('/')
     })
 }

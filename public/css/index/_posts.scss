@@ -8,7 +8,7 @@
     background-color: rgb(255, 255, 255);
     margin-bottom: 40px;
 
-    div:nth-child(1){
+    .post-name-container{
         width: auto;
         height: auto;
         display: flex;
@@ -28,7 +28,7 @@
             color: blue;
         }
     }
-    div:nth-child(2){
+    .post-content-container{
         width: 100%;
         min-height: auto;
         h1{

@@ -71,7 +71,7 @@ p, h1, h2, h3, a {
   background-color: rgb(255, 255, 255);
   margin-bottom: 40px;
 }
-.homepage-container .post-container .post-message-container div:nth-child(1) {
+.homepage-container .post-container .post-message-container .post-name-container {
   width: auto;
   height: auto;
   display: flex;
@@ -80,12 +80,12 @@ p, h1, h2, h3, a {
   padding: 10px;
   margin-right: 15px;
 }
-.homepage-container .post-container .post-message-container div:nth-child(1) h1 {
+.homepage-container .post-container .post-message-container .post-name-container h1 {
   font-size: 15px;
   font-weight: 700;
   margin: 8px;
 }
-.homepage-container .post-container .post-message-container div:nth-child(1) button {
+.homepage-container .post-container .post-message-container .post-name-container button {
   border: 0;
   background-color: transparent;
   width: -webkit-fit-content;
@@ -93,33 +93,33 @@ p, h1, h2, h3, a {
   width: fit-content;
   color: blue;
 }
-.homepage-container .post-container .post-message-container div:nth-child(2) {
+.homepage-container .post-container .post-message-container .post-content-container {
   width: 100%;
   min-height: auto;
 }
-.homepage-container .post-container .post-message-container div:nth-child(2) h1 {
+.homepage-container .post-container .post-message-container .post-content-container h1 {
   word-break: break-word;
 }
-.homepage-container .post-container .post-message-container div:nth-child(2) div {
+.homepage-container .post-container .post-message-container .post-content-container div {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
-.homepage-container .post-container .post-message-container div:nth-child(2) div p {
+.homepage-container .post-container .post-message-container .post-content-container div p {
   color: #b7b7b7;
   font-weight: 600;
   font-size: 13px;
 }
-.homepage-container .post-container .post-message-container div:nth-child(2) div p img {
+.homepage-container .post-container .post-message-container .post-content-container div p img {
   width: 25px;
   height: 25px;
   border-radius: 50%;
   margin-right: 10px;
 }
-.homepage-container .post-container .post-message-container div:nth-child(2) div p span {
+.homepage-container .post-container .post-message-container .post-content-container div p span {
   color: rgb(122, 122, 255);
 }
-.homepage-container .post-container .post-message-container div:nth-child(2) div p:nth-child(3) i {
+.homepage-container .post-container .post-message-container .post-content-container div p:nth-child(3) i {
   margin-right: 5px;
 }
 .homepage-container ::-webkit-scrollbar {
