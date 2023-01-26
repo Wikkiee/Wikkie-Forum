@@ -107,6 +107,7 @@ p, h1, h2, h3, a {
 }
 .homepage-container .post-container .post-message-container .post-content-container div p {
   color: #b7b7b7;
+  color: 0;
   font-weight: 600;
   font-size: 13px;
 }
