@@ -36,7 +36,8 @@ db.connect(function(err) {
         indexId INT,
         userId varchar(255),
         FOREIGN KEY (indexId) REFERENCES Users(indexId),
-        userPost json
+        userPost json,
+        votes INT
     )`,(err,result)=>{
         if(err) console.log(err);
         console.log(result);

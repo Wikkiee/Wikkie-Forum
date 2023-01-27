@@ -3,9 +3,9 @@ import bodyParser from 'body-parser';
 import passport from 'passport';
 import { initialize } from './passport-config.js';
 import path from 'path';
-import {home,login,register,Register,post,Post} from './routes.js';
 import session from 'express-session';
 import flash from 'express-flash'
+import {home,login,register,Register,post,Post,vote} from './routes.js';
 
 initialize(passport)
 
@@ -24,6 +24,7 @@ app.set('view engine', 'ejs',path);
 app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.json());
 app.use(passport.initialize())
 app.use(flash())
 app.use(passport.session())
@@ -47,6 +48,7 @@ app.get('/post',checkAuthenticated,post)
 
 app.post('/post',checkAuthenticated,Post)
 
+app.post('/vote',vote)
 
 
 

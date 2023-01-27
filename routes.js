@@ -75,9 +75,18 @@ export const Post = (req,res)=>{
         userAvatar:req.session.passport.user.userAvatar,
         userName:req.session.passport.user.userName
     }
-    db.query(`INSERT INTO Post(userId,userPost) VALUES('${req.session.passport.user.userId}','${JSON.stringify(data)}')`,(err,result)=>{
+    db.query(`INSERT INTO Post(userId,userPost,votes) VALUES('${req.session.passport.user.userId}','${JSON.stringify(data)}','0')`,(err,result)=>{
         if(err) throw err
         console.log(result);
         res.redirect('/')
     })
+}
+
+export const vote = (req, res)=>{
+    console.log(req.body);
+    res.send('completed')
+    // db.query(`SELECT votes FROM Post WHERE postIndexId=${req.body.postIndex}`,(err,result)=>{
+    //     if(err) throw err
+    //     console.log(result);
+    // })
 }

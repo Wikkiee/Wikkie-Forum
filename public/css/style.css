@@ -100,6 +100,9 @@ p, h1, h2, h3, a {
 .homepage-container .post-container .post-message-container .post-content-container h1 {
   word-break: break-word;
 }
+.homepage-container .post-container .post-message-container .post-content-container p {
+  word-break: break-all;
+}
 .homepage-container .post-container .post-message-container .post-content-container div {
   display: flex;
   flex-direction: row;
