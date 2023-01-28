@@ -89,4 +89,5 @@ export const vote = (req, res)=>{
     //     if(err) throw err
     //     console.log(result);
     // })
+    //.
 }
