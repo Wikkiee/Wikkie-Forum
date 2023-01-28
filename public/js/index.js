@@ -24,9 +24,29 @@ likeAndDislikeButton.forEach(button => {
             method: "POST",
             headers: {'Content-Type': 'application/json'}, 
             body: JSON.stringify(data)
-            }).then(res => {
-            console.log("Request complete! response:", res);
-            });
+            })
+            .then( res =>{
+                if(res.status == 200){
+                   return res.json()
+                }else{
+                    return 0;
+                }
+            })
+            .then(response => {
+                if(response !== 0){
+                    if(response.operation){
+                        if(target === 'like'){
+                            document.querySelectorAll('.post-name-container h1')[parseInt(button.className)-1].innerHTML = parseInt(document.querySelectorAll('.post-name-container h1')[parseInt(button.className)-1].innerHTML) + 1
+                        }else if(target === 'dislike'){
+                            document.querySelectorAll('.post-name-container h1')[parseInt(button.className)-1].innerHTML = parseInt(document.querySelectorAll('.post-name-container h1')[parseInt(button.className)-1].innerHTML) - 1
+                        }
+                        
+                    }else{
+                        console.log('Operation failed');
+                    }
+                }
+            })
+            .catch( err => console.log(err))
 
         }
     })

@@ -84,10 +84,19 @@ export const Post = (req,res)=>{
 
 export const vote = (req, res)=>{
     console.log(req.body);
-    res.send('completed')
-    // db.query(`SELECT votes FROM Post WHERE postIndexId=${req.body.postIndex}`,(err,result)=>{
-    //     if(err) throw err
-    //     console.log(result);
-    // })
-    //.
+    db.query(`SELECT votes FROM Post WHERE postIndexId=${req.body.id}`,(err,result)=>{
+        let query;
+        if(err) throw err
+        console.log(result[0].votes);
+        if(req.body.target === 'like'){
+            query = `UPDATE Post SET votes = ${result[0].votes + 1} WHERE postIndexId=${req.body.id}`
+        }else if(req.body.target === 'dislike'){
+            query = `UPDATE Post SET votes = ${result[0].votes - 1} WHERE postIndexId=${req.body.id} `
+        }
+        db.query(query,(err,result)=>{
+            if(err) throw err
+            res.status(200).json({operation : true});
+        })
+    })
+
 }

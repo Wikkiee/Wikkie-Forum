@@ -1,13 +1,12 @@
 <% if (post) { %>
     <% post.forEach(element => { %>
-        <% console.log(element) %> 
 <div class="post-message-container">
             <div id="<%= element.postIndexId %>" class="post-name-container">
                 <button class="<%= element.postIndexId %>" name="like"><i class="fa-solid fa-arrow-up"></i></button>
-                <% if (element.vote) { %>
-                    <h1> <%= element.vote %> </h1>
+                <% if (element.votes) { %>
+                    <h1> <%= element.votes %> </h1>
                 <% }else{ %>
-                    <h1>0</h1>
+                    <h1>0..</h1>
                 <% } %> 
                 <button class="<%= element.postIndexId %>" name="dislike"><i class="fa-solid fa-arrow-down"></i></button>
             </div>
