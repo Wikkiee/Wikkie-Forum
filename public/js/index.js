@@ -7,11 +7,13 @@ createPostButton.addEventListener('click',()=>{
 
 
 const likeAndDislikeButton = document.querySelectorAll('.post-name-container button')
-console.log(likeAndDislikeButton);
 
+const classList = []
 likeAndDislikeButton.forEach(button => {
+    classList.push(button.className)
     button.addEventListener('click',(e)=>{
-        console.log(button.getAttribute('name'));
+        console.log(classList);
+
         if(button.getAttribute('name') === 'like'){
             likeAndDislikeAction('like',button.className)
         }else if(button.getAttribute('name') === 'dislike'){

@@ -40,7 +40,15 @@ db.connect(function(err) {
         votes INT
     )`,(err,result)=>{
         if(err) console.log(err);
+        db.query(`CREATE TABLE IF NOT EXISTS Vote(
+          voteIndexId INT NOT NULL AUTO_INCREMENT,
+          PRIMARY KEY(voteIndexId),
+          userId varchar(255),
+          postVotes json
+      )`,(err,result)=>{
+        if(err) console.log(err);
         console.log(result);
+      })
     })
   })
   });

@@ -86,15 +86,23 @@ export const vote = (req, res)=>{
     console.log(req.body);
     db.query(`SELECT votes FROM Post WHERE postIndexId=${req.body.id}`,(err,result)=>{
         let query;
+        let like = false;
+        let dislike = false;
         if(err) throw err
         console.log(result[0].votes);
         if(req.body.target === 'like'){
+            like = true 
             query = `UPDATE Post SET votes = ${result[0].votes + 1} WHERE postIndexId=${req.body.id}`
         }else if(req.body.target === 'dislike'){
+            dislike = true
             query = `UPDATE Post SET votes = ${result[0].votes - 1} WHERE postIndexId=${req.body.id} `
         }
         db.query(query,(err,result)=>{
-            if(err) throw err
+            if(err) throw err 
+            db.query(`INSERT INTO Vote(userId,postVotes) VALUES('${req.session.passport.user.userId}','${JSON.stringify({postIndexId: parseInt(req.body.id),like:like,dislike:dislike})}')`,(err,result)=>{
+                if(err) throw err
+                console.log("Inserted on vote successfully");
+            })
             res.status(200).json({operation : true});
         })
     })
