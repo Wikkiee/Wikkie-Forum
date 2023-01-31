@@ -40,7 +40,6 @@ likeAndDislikeButton.forEach(button => {
                         if(target === 'like'){
                             document.querySelectorAll('.post-name-container h1')[parseInt(button.className)-1].innerHTML = parseInt(document.querySelectorAll('.post-name-container h1')[parseInt(button.className)-1].innerHTML) + 1
                         }else if(target === 'dislike'){
-                            //.
                             document.querySelectorAll('.post-name-container h1')[parseInt(button.className)-1].innerHTML = parseInt(document.querySelectorAll('.post-name-container h1')[parseInt(button.className)-1].innerHTML) - 1
                         }
                         
@@ -50,7 +49,6 @@ likeAndDislikeButton.forEach(button => {
                 }
             })
             .catch( err => console.log(err))
-
         }
     })
 });
