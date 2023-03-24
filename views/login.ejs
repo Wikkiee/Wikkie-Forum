@@ -16,7 +16,7 @@
         <h2><img src="/images/logo.svg" alt="img"/> Login</h1>
         <form action="/login" method="post">
             <input name="userEmailId" placeholder="Email ID"/>
-            <input name="userPassword" placeholder="Password"/>
+            <input name="userPassword" type="password" placeholder="Password"/>
             <div>
                 <% if (messages.error) { %>
                     <label><%= messages.error %></label>

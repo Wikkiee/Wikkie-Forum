@@ -4,6 +4,7 @@ import db from './database.js'
 
 export const initialize = (passport)=>{
     const authenticateUser = async(email,password,done)=>{
+        console.log(email,password)
         db.query(`SELECT * FROM Users WHERE userEmail='${email}'`,async (err,result)=>{
             if(err) throw err
             const user = result[0]
