@@ -36,11 +36,12 @@ likeAndDislikeButton.forEach(button => {
             })
             .then(response => {
                 if(response !== 0){
+                    console.log(response)
                     if(response.operation){
                         if(target === 'like'){
-                            document.querySelectorAll('.post-name-container h1')[parseInt(button.className)-1].innerHTML = parseInt(document.querySelectorAll('.post-name-container h1')[parseInt(button.className)-1].innerHTML) + 1
+                            document.querySelectorAll('.post-name-container h1')[parseInt(button.className)].innerText = parseInt(document.querySelectorAll('.post-name-container h1')[parseInt(button.className)-1].innerHTML) + 1
                         }else if(target === 'dislike'){
-                            document.querySelectorAll('.post-name-container h1')[parseInt(button.className)-1].innerHTML = parseInt(document.querySelectorAll('.post-name-container h1')[parseInt(button.className)-1].innerHTML) - 1
+                            document.querySelectorAll('.post-name-container h1')[parseInt(button.className)-1].innerText = parseInt(document.querySelectorAll('.post-name-container h1')[parseInt(button.className)-1].innerHTML) - 1
                         }
                         
                     }else{

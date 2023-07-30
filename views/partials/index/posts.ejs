@@ -1,21 +1,23 @@
 <% if (post) { %>
+    
     <% post.forEach(element => { %>
+    <% console.log(element) %>
 <div class="post-message-container">
             <div id="<%= element.postIndexId %>" class="post-name-container">
                 <button class="<%= element.postIndexId %>" name="like"><i class="fa-solid fa-arrow-up"></i></button>
                 <% if (element.votes) { %>
-                    <h1> <%= element.votes %> </h1>
+                    <h1 class="<%= element.postIndexId %>"> <%= element.votes %> </h1>
                 <% }else{ %>
-                    <h1>0..</h1>
+                    <h1>0</h1>
                 <% } %> 
                 <button  class="<%= element.postIndexId %>" name="dislike"><i class="fa-solid fa-arrow-down"></i></button>
             </div>
             <div class="post-content-container">
-                <h1><%= element.userPost.postTitle %> </h1>
-                <p><%= element.userPost.postContent %> </p>
+                <h1><%= JSON.parse(element.userPost).postTitle %> </h1>
+                <p><%= JSON.parse(element.userPost).postContent %> </p>
                 <hr/>
                 <div>
-                    <p><img src="<%= element.userPost.userAvatar %> "/>Posted by <span><%= element.userPost.userName %></span></p>
+                    <p><img src="<%= JSON.parse(element.userPost).userAvatar %> "/>Posted by <span><%= JSON.parse(element.userPost).userName %></span></p>
                     <p>15hr ago</p>
                     <p><i class="fa-regular fa-message"></i>50+</p>
                 </div>
